@@ -79,13 +79,13 @@ const ProductDetails = () => {
     let payload;
     if (priceId) {
       payload = {
-        productId:product?._id,
+        productId: product?._id,
         priceId,
         quantity,
       };
     } else {
       payload = {
-        productId:product?._id,
+        productId: product?._id,
         quantity,
       };
     }
@@ -461,15 +461,36 @@ const ProductDetails = () => {
             ""
           )}
 
-          <div className="buttons">
-            <button className="cart" onClick={() => cartHandler()}>
-              {inCart ? "ADDED" : "ADD TO CART"}
-            </button>
 
-            <button className="stripe" onClick={() => buyWithStripe()}>
-              BUY WITH STRIPE
-            </button>
-          </div>
+          {product?.isShowAddToCart ?
+            <div className="buttons">
+              <button className="cart" onClick={() => cartHandler()}>
+                {inCart ? "ADDED" : "ADD TO CART"}
+              </button>
+
+              <button className="stripe" onClick={() => buyWithStripe()}>
+                BUY WITH STRIPE
+              </button>
+            </div>
+            :
+            <div className="py-8">
+              <p className="text-lg text-black">
+                Please contact the office for more information <br />
+                at{" "}
+                <a href="tel:+1 (469) 823-0402" className="text-[#BA6B5D] hover:underline">
+                  +1 (469) 823-0402
+                </a>{" "}
+                or{" "}
+                <a
+                  href="mailto:info@shahinahoja.com"
+                  className="text-[#BA6B5D] hover:underline"
+                >
+                  info@shahinahoja.com
+                </a>
+              </p>
+            </div>
+          }
+
 
           <div className="tabs-container">
             <Tabs defaultActiveKey="DESCRIPTION1" items={items} />
