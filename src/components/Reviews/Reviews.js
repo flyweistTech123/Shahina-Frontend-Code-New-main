@@ -24,10 +24,12 @@ const Reviews = () => {
         our spa loving their skin. That's why over {data?.data?.numOfReviews}{" "}
         people have given us a 5-star rating on Google!
       </p>
-      <ImageLazyLoading
-        img={"/asessts/google-review.png"}
-        alt={"Google Rating"}
-      />
+      <a href="https://surl.li/itcqtk" target="_blank" rel="noopener noreferrer">
+        <ImageLazyLoading
+          img={"/asessts/google-review.png"}
+          alt={"Google Rating"}
+        />
+      </a>
     </div>
   );
 };

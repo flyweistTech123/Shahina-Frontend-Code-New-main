@@ -143,8 +143,8 @@ const ServicePage = () => {
   const TotolData =
     query?.length > 2
       ? response?.sizePrice?.filter((i) =>
-          i?.size?.toLowerCase().includes(query?.toLowerCase())
-        )
+        i?.size?.toLowerCase().includes(query?.toLowerCase())
+      )
       : response?.sizePrice;
 
   const querySelector = (data, state, type) => {
@@ -405,41 +405,41 @@ const ServicePage = () => {
                 <div className="container">
                   {TotolData?.length === 0
                     ? response?.sizePrice?.map((i, index) => (
-                        <button
-                          key={`Season${index}`}
-                          onClick={() => {
-                            setPriceId(i?._id);
-                            setSize(i?.size);
-                            setSizeprice(i?.price);
-                            setMemberPrice(i?.mPrice);
-                            setSizeOpen(false);
-                            setSessionPrice(i?.savedPrice);
-                          }}
-                        >
-                          {i.size} ${i.mPrice}{" "}
-                          {i?.savedPrice > 0
-                            ? `- $${i?.savedPrice}/session`
-                            : ""}
-                        </button>
-                      ))
+                      <button
+                        key={`Season${index}`}
+                        onClick={() => {
+                          setPriceId(i?._id);
+                          setSize(i?.size);
+                          setSizeprice(i?.price);
+                          setMemberPrice(i?.mPrice);
+                          setSizeOpen(false);
+                          setSessionPrice(i?.savedPrice);
+                        }}
+                      >
+                        {i.size} ${i.mPrice}{" "}
+                        {i?.savedPrice > 0
+                          ? `- $${i?.savedPrice}/session`
+                          : ""}
+                      </button>
+                    ))
                     : TotolData?.map((i, index) => (
-                        <button
-                          key={`Season${index}`}
-                          onClick={() => {
-                            setPriceId(i?._id);
-                            setSize(i?.size);
-                            setSizeprice(i?.price);
-                            setMemberPrice(i?.mPrice);
-                            setSizeOpen(false);
-                            setSessionPrice(i?.savedPrice);
-                          }}
-                        >
-                          {i.size} ${i.mPrice}
-                          {i?.savedPrice > 0
-                            ? `- $${i?.savedPrice}/session`
-                            : ""}
-                        </button>
-                      ))}
+                      <button
+                        key={`Season${index}`}
+                        onClick={() => {
+                          setPriceId(i?._id);
+                          setSize(i?.size);
+                          setSizeprice(i?.price);
+                          setMemberPrice(i?.mPrice);
+                          setSizeOpen(false);
+                          setSessionPrice(i?.savedPrice);
+                        }}
+                      >
+                        {i.size} ${i.mPrice}
+                        {i?.savedPrice > 0
+                          ? `- $${i?.savedPrice}/session`
+                          : ""}
+                      </button>
+                    ))}
                 </div>
               </motion.div>
             )}
@@ -465,11 +465,13 @@ const ServicePage = () => {
             have them leave our spa loving their skin. That's why over 130
             people have given us a 5-star rating on Google!
           </p>
-          <ImageLazyLoading
-            img={"/asessts/google-review.png"}
-            className={"text-[10px]"}
-            alt={"Google Reviews"}
-          />
+          <a href="https://surl.li/itcqtk" target="_blank" rel="noopener noreferrer">
+            <ImageLazyLoading
+              img={"/asessts/google-review.png"}
+              className={"text-[10px]"}
+              alt={"Google Reviews"}
+            />
+          </a>
         </div>
         <div style={{ width: "100%", overflow: "hidden" }}>
           <Testimonials />
