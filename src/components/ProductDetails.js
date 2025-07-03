@@ -404,31 +404,36 @@ const ProductDetails = () => {
 
         <div className="right">
           <p className="title"> {product?.name} </p>
-
-          <div className="price-container">
-            <span className="price">${price}</span>
-          </div>
+          {product?.isShowAddToCart &&
+            <div className="price-container">
+              <span className="price">${price}</span>
+            </div>
+          }
 
           {membership_fetcher()}
-          <p className="quantity">QUANTITY</p>
+          {product?.isShowAddToCart &&
+            <>
+              <p className="quantity">QUANTITY</p>
 
-          <div style={{ width: "40%" }} className="Quantity_Container">
-            <div className="qty">
-              <span
-                className="input cursor-pointer"
-                onClick={() => quantity > 1 && setQuantity(quantity - 1)}
-              >
-                <AiOutlineMinus />
-              </span>
-              <span className="item"> {quantity} </span>
-              <span
-                className="input cursor-pointer"
-                onClick={() => setQuantity(quantity + 1)}
-              >
-                <AiOutlinePlus />
-              </span>
-            </div>
-          </div>
+              <div style={{ width: "40%" }} className="Quantity_Container">
+                <div className="qty">
+                  <span
+                    className="input cursor-pointer"
+                    onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+                  >
+                    <AiOutlineMinus />
+                  </span>
+                  <span className="item"> {quantity} </span>
+                  <span
+                    className="input cursor-pointer"
+                    onClick={() => setQuantity(quantity + 1)}
+                  >
+                    <AiOutlinePlus />
+                  </span>
+                </div>
+              </div>
+            </>
+          }
 
           {sizes?.length > 0 && (
             <div className="multiple-sizes">
@@ -462,7 +467,9 @@ const ProductDetails = () => {
           )}
 
 
-          {product?.isShowAddToCart ?
+          {product === undefined ? (
+            <div><FullScreenLoader /></div>
+          ) : product.isShowAddToCart ? (
             <div className="buttons">
               <button className="cart" onClick={() => cartHandler()}>
                 {inCart ? "ADDED" : "ADD TO CART"}
@@ -472,10 +479,10 @@ const ProductDetails = () => {
                 BUY WITH STRIPE
               </button>
             </div>
-            :
+          ) : (
             <div className="py-8">
               <p className="text-lg text-black">
-                Please contact the office for more information <br />
+                Please contact the office for more information<br />
                 at{" "}
                 <a href="tel:+1 (469) 823-0402" className="text-[#BA6B5D] hover:underline">
                   +1 (469) 823-0402
@@ -489,7 +496,7 @@ const ProductDetails = () => {
                 </a>
               </p>
             </div>
-          }
+          )}
 
 
           <div className="tabs-container">
