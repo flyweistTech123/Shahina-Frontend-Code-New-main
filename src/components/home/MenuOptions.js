@@ -14,7 +14,18 @@ const MenuOptions = () => {
       children: [
         {
           label: (
-            <Link to="/service/BIOREPEEL?id=66b4c7d65fc5deae1f36cccb">
+            <Link
+              to={{
+                pathname: "/service/biorepeel",
+                state: { id: "66b4c7d65fc5deae1f36cccb", serviceName: "BIOREPEEL" },
+              }}
+              onClick={() => {
+                sessionStorage.setItem("serviceState", JSON.stringify({
+                  id: "66b4c7d65fc5deae1f36cccb",
+                  serviceName: "BIOREPEEL",
+                }));
+              }}
+            >
               BIOREPEEL
             </Link>
           ),
@@ -22,7 +33,21 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/SALMON%20SPERM%20DNA%20FACIAL?id=66b4c6875fc5deae1f36aa2f">
+            <Link
+              to={{
+                pathname: "/service/salmon-sperm-dna-facial",
+                state: {
+                  id: "66b4c6875fc5deae1f36aa2f",
+                  serviceName: "SALMON SPERM DNA FACIAL"
+                },
+              }}
+              onClick={() => {
+                sessionStorage.setItem("serviceState", JSON.stringify({
+                  id: "66b4c6875fc5deae1f36aa2f",
+                  serviceName: "SALMON SPERM DNA FACIAL",
+                }));
+              }}
+            >
               SALMON SPERM DNA FACIAL
             </Link>
           ),
@@ -30,7 +55,21 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/AEROLASE%20ROSACEA%20TREATMENT?id=6600a133133755405effb1da">
+            <Link
+              to={{
+                pathname: "/service/aerolase-rosacea-treatment",
+                state: {
+                  id: "6600a133133755405effb1da",
+                  serviceName: "AEROLASE ROSACEA TREATMENT"
+                }
+              }}
+              onClick={() => {
+                sessionStorage.setItem("serviceState", JSON.stringify({
+                  id: "6600a133133755405effb1da",
+                  serviceName: "AEROLASE ROSACEA TREATMENT",
+                }));
+              }}
+            >
               AEROLASE ROSACEA TREATMENT
             </Link>
           ),
@@ -38,7 +77,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/FOREVER%20YOUNG%20LASER%20TREATMENT?id=66009e62133755405effadc5">
+            <Link
+              to={{
+                pathname: "/service/forever-young-laser-treatment",
+                state: {
+                  id: "66009e62133755405effadc5",
+                  serviceName: "FOREVER YOUNG LASER TREATMENT",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "66009e62133755405effadc5",
+                    serviceName: "FOREVER YOUNG LASER TREATMENT",
+                  })
+                )
+              }
+            >
               FOREVER YOUNG LASER TREATMENT
             </Link>
           ),
@@ -46,7 +102,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/HYDRAFACIAL?id=65d4905c82786773e7d12f57">
+            <Link
+              to={{
+                pathname: "/service/hydrafacial",
+                state: {
+                  id: "65d4905c82786773e7d12f57",
+                  serviceName: "HYDRAFACIAL",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "65d4905c82786773e7d12f57",
+                    serviceName: "HYDRAFACIAL",
+                  })
+                )
+              }
+            >
               HYDRAFACIAL
             </Link>
           ),
@@ -54,7 +127,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/PRO%20CLINICAL%20PEEL?id=6597c628a65da702bea4c134">
+            <Link
+              to={{
+                pathname: "/service/pro-clinical-peel",
+                state: {
+                  id: "6597c628a65da702bea4c134",
+                  serviceName: "PRO CLINICAL PEEL",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "6597c628a65da702bea4c134",
+                    serviceName: "PRO CLINICAL PEEL",
+                  })
+                )
+              }
+            >
               PRO CLINICAL PEEL
             </Link>
           ),
@@ -62,7 +152,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/MICRONEEDLING?id=654b399b5d1113dac9b90d61">
+            <Link
+              to={{
+                pathname: "/service/microneedling",
+                state: {
+                  id: "654b399b5d1113dac9b90d61",
+                  serviceName: "MICRONEEDLING",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654b399b5d1113dac9b90d61",
+                    serviceName: "MICRONEEDLING",
+                  })
+                )
+              }
+            >
               MICRONEEDLING
             </Link>
           ),
@@ -70,7 +177,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/RED%20CARPET%20FACIAL?id=654b36a313b92aa67e37dbab">
+            <Link
+              to={{
+                pathname: "/service/red-carpet-facial",
+                state: {
+                  id: "654b36a313b92aa67e37dbab",
+                  serviceName: "RED CARPET FACIAL",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654b36a313b92aa67e37dbab",
+                    serviceName: "RED CARPET FACIAL",
+                  })
+                )
+              }
+            >
               RED CARPET FACIAL
             </Link>
           ),
@@ -78,7 +202,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/JETPEEL%20FACIAL?id=654b32b905a9c751730a2561">
+            <Link
+              to={{
+                pathname: "/service/jetpeel-facial",
+                state: {
+                  id: "654b32b905a9c751730a2561",
+                  serviceName: "JETPEEL FACIAL",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654b32b905a9c751730a2561",
+                    serviceName: "JETPEEL FACIAL",
+                  })
+                )
+              }
+            >
               JETPEEL FACIAL
             </Link>
           ),
@@ -86,7 +227,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/IPL%20SKIN%20REJUVANATION?id=654a3c1aba0a2cc9d9245783">
+            <Link
+              to={{
+                pathname: "/service/ipl-skin-rejuvanation",
+                state: {
+                  id: "654a3c1aba0a2cc9d9245783",
+                  serviceName: "IPL SKIN REJUVANATION",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a3c1aba0a2cc9d9245783",
+                    serviceName: "IPL SKIN REJUVANATION",
+                  })
+                )
+              }
+            >
               IPL SKIN REJUVANATION
             </Link>
           ),
@@ -94,7 +252,24 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/AQUAGOLD%20MICRONEEDLING?id=654a31414272c5c2011f28b9">
+            <Link
+              to={{
+                pathname: "/service/aquagold-microneedling",
+                state: {
+                  id: "654a31414272c5c2011f28b9",
+                  serviceName: "AQUAGOLD MICRONEEDLING",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a31414272c5c2011f28b9",
+                    serviceName: "AQUAGOLD MICRONEEDLING",
+                  })
+                )
+              }
+            >
               AQUAGOLD MICRONEEDLING
             </Link>
           ),
@@ -102,15 +277,48 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/LASER%20SKIN%20RESURFACING?id=654a2cc3bfbc43eedc7b7f14">
-              LASER SKIN RESURFACING
+            <Link
+              to={{
+                pathname: "/service/halo-laser-skin-resurfacing",
+                state: {
+                  id: "654a2cc3bfbc43eedc7b7f14",
+                  serviceName: "HALO Laser Skin Resurfacing	",
+                },
+              }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a2cc3bfbc43eedc7b7f14",
+                    serviceName: "HALO Laser Skin Resurfacing	",
+                  })
+                )
+              }
+            >
+              HALO Laser Skin Resurfacing
             </Link>
           ),
           key: "aging-12",
         },
         {
           label: (
-            <Link to="/service/RF%20MICRONEEDLING?id=654a2bc782e27a60b230beb7">
+            <Link to={{
+              pathname: "/service/rf-microneedling",
+              state: {
+                id: "654a2bc782e27a60b230beb7",
+                serviceName: "RF MICRONEEDLING",
+              },
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a2bc782e27a60b230beb7",
+                    serviceName: "RF MICRONEEDLING",
+                  })
+                )
+              }
+            >
               RF MICRONEEDLING
             </Link>
           ),
@@ -118,7 +326,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/RF%20SKIN%20TIGHTENING?id=654a228512f66a23b4cf6fe8">
+            <Link to={{
+              pathname: "/service/rf-skin-tightening",
+              state: {
+                id: "654a228512f66a23b4cf6fe8",
+                serviceName: "RF SKIN TIGHTENING"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a228512f66a23b4cf6fe8",
+                    serviceName: "RF SKIN TIGHTENING",
+                  })
+                )
+              }
+            >
               RF SKIN TIGHTENING
             </Link>
           ),
@@ -126,7 +350,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/PRP%20MICRONEEDLING?id=654a20b481151536685c6a44">
+            <Link to={{
+              pathname: "/service/prp-microneedling",
+              state: {
+                id: "654a20b481151536685c6a44",
+                serviceName: "PRP MICRONEEDLING"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a20b481151536685c6a44",
+                    serviceName: "PRP MICRONEEDLING",
+                  })
+                )
+              }
+            >
               PRP MICRONEEDLING
             </Link>
           ),
@@ -134,7 +374,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/PERFECT%20DERMA%20PEEL?id=654a0625626b3dcdcf4ed85a">
+            <Link to={{
+              pathname: "/service/perfect-derma-peel",
+              state: {
+                id: "654a0625626b3dcdcf4ed85a",
+                serviceName: " PERFECT DERMA PEEL"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a0625626b3dcdcf4ed85a",
+                    serviceName: "PERFECT DERMA PEEL",
+                  })
+                )
+              }
+            >
               PERFECT DERMA PEEL
             </Link>
           ),
@@ -142,7 +398,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/TCA%20PEEL?id=654a00860645064084c8aba0">
+            <Link to={{
+              pathname: "/service/tca-peel",
+              state: {
+                id: "654a00860645064084c8aba0",
+                serviceName: "TCA PEEL"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "654a00860645064084c8aba0",
+                    serviceName: "TCA PEEL",
+                  })
+                )
+              }
+            >
               TCA PEEL
             </Link>
           ),
@@ -150,7 +422,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/DERMAMELAN%20PEEL?id=651fe2bff776a09d2b9f78cc">
+            <Link to={{
+              pathname: "/service/dermamelan-peel",
+              state: {
+                id: "651fe2bff776a09d2b9f78cc",
+                serviceName: "DERMAMELAN PEEL"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "651fe2bff776a09d2b9f78cc",
+                    serviceName: "DERMAMELAN PEEL",
+                  })
+                )
+              }
+            >
               DERMAMELAN PEEL
             </Link>
           ),
@@ -158,7 +446,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/COSMELAN%20MD%20PEEL?id=651fe273f776a09d2b9f78c6">
+            <Link to={{
+              pathname: "/service/cosmelan-md-peel",
+              state: {
+                id: "651fe273f776a09d2b9f78c6",
+                serviceName: "COSMELAN MD PEEL"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "651fe273f776a09d2b9f78c6",
+                    serviceName: "COSMELAN MD PEEL",
+                  })
+                )
+              }
+            >
               COSMELAN MD PEEL
             </Link>
           ),
@@ -166,7 +470,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/IPL%20VASCULAR%20(ROSACEA)%20TREATMENT?id=651fdb24f776a09d2b9f78af">
+            <Link to={{
+              pathname: "/service/ipl-vascular-rosacea-treatment",
+              state: {
+                id: "651fdb24f776a09d2b9f78af",
+                serviceName: "IPL VASCULAR (ROSACEA) TREATMENT"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "651fdb24f776a09d2b9f78af",
+                    serviceName: "IPL VASCULAR (ROSACEA) TREATMENT",
+                  })
+                )
+              }
+            >
               IPL VASCULAR (ROSACEA) TREATMENT
             </Link>
           ),
@@ -174,7 +494,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/VIRTUAL%20CONSULTATION?id=65d49bddd8c5a329ce904775">
+            <Link to={{
+              pathname: "/service/virtual-consultation",
+              state: {
+                id: "65d49bddd8c5a329ce904775",
+                serviceName: "VIRTUAL CONSULTATION"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "65d49bddd8c5a329ce904775",
+                    serviceName: "VIRTUAL CONSULTATION",
+                  })
+                )
+              }
+            >
               VIRTUAL CONSULTATION
             </Link>
           ),
@@ -182,7 +518,23 @@ const MenuOptions = () => {
         },
         {
           label: (
-            <Link to="/service/IN-PERSON%20CONSULTATION?id=65d49b05d8c5a329ce9045f7">
+            <Link to={{
+              pathname: "/service/in-person-consultation",
+              state: {
+                id: "65d49b05d8c5a329ce9045f7",
+                serviceName: "IN-PERSON CONSULTATION"
+              }
+            }}
+              onClick={() =>
+                sessionStorage.setItem(
+                  "serviceState",
+                  JSON.stringify({
+                    id: "65d49b05d8c5a329ce9045f7",
+                    serviceName: "IN-PERSON CONSULTATION",
+                  })
+                )
+              }
+            >
               IN-PERSON CONSULTATION
             </Link>
           ),

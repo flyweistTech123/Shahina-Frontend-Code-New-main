@@ -15,10 +15,13 @@ import { ImageLazyLoading } from "../../utils/helpingComponent";
 import endPoints from "../../Repository/apiConfig";
 
 const ServicePage = () => {
-  const { name } = useParams();
+  // const { name } = useParams();
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const serviceId = queryParams.get("id");
+  // const queryParams = new URLSearchParams(location.search);
+  // const serviceId = queryParams.get("id");
+  const state = location.state || JSON.parse(sessionStorage.getItem("serviceState") || "{}");
+  const { id, serviceName } = state;
+
   const [response, setResponse] = useState([]);
   const navigate = useNavigate();
   const isLoggedIn = useSelector(isAuthenticated);
@@ -41,12 +44,12 @@ const ServicePage = () => {
   const [data, setData] = useState(null);
 
   const fetchServiceDetail = useCallback(() => {
-    const url = endPoints.service.getServiceDetail(name);
+    const url = endPoints.service.getServiceDetail(serviceName);
     getApi({
       url,
       setResponse: setData,
     });
-  }, [name]);
+  }, [serviceName]);
 
   useEffect(() => {
     fetchServiceDetail();
@@ -59,13 +62,13 @@ const ServicePage = () => {
   }, [data]);
 
   const fetchMetaTags = useCallback(() => {
-    if (serviceId) {
+    if (id) {
       getApi({
-        url: endPoints.metaTags.serviceDetailPage(serviceId),
+        url: endPoints.metaTags.serviceDetailPage(id),
         setResponse: setMetaResponse,
       });
     }
-  }, [serviceId]);
+  }, [id]);
 
   useEffect(() => {
     fetchMetaTags();
@@ -76,7 +79,7 @@ const ServicePage = () => {
       top: 0,
       behavior: "instant",
     });
-  }, [name]);
+  }, [serviceName]);
 
   useEffect(() => {
     if (response?.multipleSize === true) {
@@ -108,14 +111,14 @@ const ServicePage = () => {
       const additionalFunctions = [() => navigate("/schedule1")];
       dispatch(
         post_module_redux({
-          url: `api/v1/add-to-cart/service/${serviceId}`,
+          url: `api/v1/add-to-cart/service/${id}`,
           payload,
           dispatchFunc,
           additionalFunctions,
         })
       );
     } else {
-      const dummy = { id: serviceId, payload };
+      const dummy = { id: id, payload };
       await dispatch(addServiceLocally(dummy));
       navigate("/appointment");
     }
