@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState, useCallback } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getApi, getCart, post_module_redux } from "../../Repository/Api";
 import { useDispatch, useSelector } from "react-redux";
@@ -200,6 +200,95 @@ const ServicePage = () => {
         style={{ backgroundImage: `url(${response?.images?.[0]?.img})` }}
       ></div>
     );
+  }
+
+
+  function priceFetcher(i) {
+    if (i.multipleSize === false) {
+      return (
+        <div
+          className="price-container"
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            gap: "50px",
+          }}
+        >
+          {/* Member Price column */}
+          <div style={{ textAlign: "center" }}>
+            <p
+              className="member"
+              style={{ color: "red", margin: 0 }}
+            >
+              Member Price
+            </p>
+            <p
+              className="member-price"
+              style={{ color: "red", margin: 0 }}
+            >
+              ${i.mPrice}
+            </p>
+          </div>
+
+          {/* Regular Price column */}
+          <div style={{ textAlign: "center" }}>
+            <p
+              className="mrp-label"
+              style={{ fontSize: "16px", color: "#000", margin: 0 }}
+            >
+              Regular Price
+            </p>
+            <p
+              className="mrp"
+              style={{ margin: 0 }}
+            >
+              ${i.price}
+            </p>
+          </div>
+        </div>
+
+      );
+    } else {
+      const smallestPriceObject = i?.sizePrice?.reduce(
+        (minPriceObject, currentObject) => {
+          if (currentObject.mPrice < minPriceObject.mPrice) {
+            return currentObject;
+          } else {
+            return minPriceObject;
+          }
+        },
+        i?.sizePrice?.[0]
+      );
+
+      return (
+        <>
+          <span className="price-container">
+            <p className="member" style={{ color: "red" }}>
+              Member Price
+            </p>
+            <span
+              className="mrp"
+              style={{
+                fontSize: "16px",
+                color: "#000",
+                textDecoration: "none",
+              }}
+            >
+              Regular Price{" "}
+            </span>
+          </span>
+          <span className="price-container">
+            <p className="member-price" style={{ color: "red" }}>
+              ${smallestPriceObject?.mPrice}{" "}
+            </p>
+            <span className="mrp" style={{ textDecoration: "none" }}>
+              ${smallestPriceObject?.price}{" "}
+            </span>
+          </span>
+        </>
+      );
+    }
   }
 
   return (
@@ -456,6 +545,13 @@ const ServicePage = () => {
             alt={"Before Treatment"}
           />
         )}
+        {priceFetcher(response)}
+        <div className="product-container" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>
+          <p className="interes">
+            Pay with interest free installments with Cherry
+          </p>
+          <a href="/paymentplan" style={{color:"#042b26", fontWeight:"700"}}>CLICK TO LEARN MORE</a>
+        </div>
         <div className="service_book_button">
           <button onClick={() => addToCart()}>Book Now</button>
         </div>
