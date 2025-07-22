@@ -1617,7 +1617,7 @@
 }
 
 .indivisual-product .right .price-container {
-  display: flex;
+  /* display: flex; */
   gap: 40px;
   margin-top: 20px;
   align-items: center;

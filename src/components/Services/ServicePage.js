@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState, useCallback } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getApi, getCart, post_module_redux } from "../../Repository/Api";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,13 +15,10 @@ import { ImageLazyLoading } from "../../utils/helpingComponent";
 import endPoints from "../../Repository/apiConfig";
 
 const ServicePage = () => {
-  // const { name } = useParams();
+  const { name } = useParams();
   const location = useLocation();
-  // const queryParams = new URLSearchParams(location.search);
+  const queryParams = new URLSearchParams(location.search);
   // const serviceId = queryParams.get("id");
-  const state = location.state || JSON.parse(sessionStorage.getItem("serviceState") || "{}");
-  const { id, serviceName } = state;
-
   const [response, setResponse] = useState([]);
   const navigate = useNavigate();
   const isLoggedIn = useSelector(isAuthenticated);
@@ -42,14 +39,19 @@ const ServicePage = () => {
   const [sessionPrice, setSessionPrice] = useState("");
   const [metaResponse, setMetaResponse] = useState(null);
   const [data, setData] = useState(null);
+  const [serviceId, setServiceId] = useState('')
 
   const fetchServiceDetail = useCallback(() => {
-    const url = endPoints.service.getServiceDetail(serviceName);
+    const url = endPoints.service.getServiceDetail(name);
     getApi({
       url,
       setResponse: setData,
     });
-  }, [serviceName]);
+  }, [name]);
+
+  useEffect(() => {
+    setServiceId(response?._id)
+  }, [response])
 
   useEffect(() => {
     fetchServiceDetail();
@@ -62,13 +64,13 @@ const ServicePage = () => {
   }, [data]);
 
   const fetchMetaTags = useCallback(() => {
-    if (id) {
+    if (serviceId) {
       getApi({
-        url: endPoints.metaTags.serviceDetailPage(id),
+        url: endPoints.metaTags.serviceDetailPage(serviceId),
         setResponse: setMetaResponse,
       });
     }
-  }, [id]);
+  }, [serviceId]);
 
   useEffect(() => {
     fetchMetaTags();
@@ -79,7 +81,7 @@ const ServicePage = () => {
       top: 0,
       behavior: "instant",
     });
-  }, [serviceName]);
+  }, [name]);
 
   useEffect(() => {
     if (response?.multipleSize === true) {
@@ -111,14 +113,14 @@ const ServicePage = () => {
       const additionalFunctions = [() => navigate("/schedule1")];
       dispatch(
         post_module_redux({
-          url: `api/v1/add-to-cart/service/${id}`,
+          url: `api/v1/add-to-cart/service/${serviceId}`,
           payload,
           dispatchFunc,
           additionalFunctions,
         })
       );
     } else {
-      const dummy = { id: id, payload };
+      const dummy = { id: serviceId, payload };
       await dispatch(addServiceLocally(dummy));
       navigate("/appointment");
     }
@@ -262,31 +264,47 @@ const ServicePage = () => {
       );
 
       return (
-        <>
-          <span className="price-container">
-            <p className="member" style={{ color: "red" }}>
+        <div
+          className="price-container"
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            gap: "50px",
+          }}
+        >
+          {/* Member Price column */}
+          <div style={{ textAlign: "center" }}>
+            <p
+              className="member"
+              style={{ color: "red", margin: 0 }}
+            >
               Member Price
             </p>
-            <span
-              className="mrp"
-              style={{
-                fontSize: "16px",
-                color: "#000",
-                textDecoration: "none",
-              }}
+            <p
+              className="member-price"
+              style={{ color: "red", margin: 0 }}
             >
-              Regular Price{" "}
-            </span>
-          </span>
-          <span className="price-container">
-            <p className="member-price" style={{ color: "red" }}>
-              ${smallestPriceObject?.mPrice}{" "}
+              ${i.mPrice}
             </p>
-            <span className="mrp" style={{ textDecoration: "none" }}>
-              ${smallestPriceObject?.price}{" "}
-            </span>
-          </span>
-        </>
+          </div>
+
+          {/* Regular Price column */}
+          <div style={{ textAlign: "center" }}>
+            <p
+              className="mrp-label"
+              style={{ fontSize: "16px", color: "#000", margin: 0 }}
+            >
+              Regular Price
+            </p>
+            <p
+              className="mrp"
+              style={{ margin: 0 }}
+            >
+              ${i.price}
+            </p>
+          </div>
+        </div>
       );
     }
   }
@@ -545,12 +563,14 @@ const ServicePage = () => {
             alt={"Before Treatment"}
           />
         )}
-        {priceFetcher(response)}
-        <div className="product-container" style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>
-          <p className="interes">
-            Pay with interest free installments with Cherry
-          </p>
-          <a href="/paymentplan" style={{color:"#042b26", fontWeight:"700"}}>CLICK TO LEARN MORE</a>
+        <div style={{marginTop:"1rem"}}>
+          {priceFetcher(response)}
+          <div className="product-container" style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop: "10px" }}>
+            <p className="interes">
+              Pay with interest free installments with Cherry
+            </p>
+            <a href="/paymentplan" style={{ color: "#042b26", fontWeight: "700" }}>CLICK TO LEARN MORE</a>
+          </div>
         </div>
         <div className="service_book_button">
           <button onClick={() => addToCart()}>Book Now</button>

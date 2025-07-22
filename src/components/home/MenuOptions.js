@@ -27,18 +27,19 @@ const MenuOptions = () => {
   }, []);
 
   const fetchService = useCallback(() => {
-    // if (!categoryId) return;
+    // if (!categoryId) return; 
 
     const queryParams = new URLSearchParams({
       categoryId: categoryId,
     });
+
     const beforeLoginUrl = endPoints.service.getServiceByCategoryBeforeLogin(
-      queryParams?.toString()
+      queryParams.toString()
     );
     const afterLoginUrl = endPoints.service.getServiceByCategoryAfterLogin(
-      queryParams?.toString()
+      queryParams.toString()
     );
-    const url = isLoggedIn ? afterLoginUrl : beforeLoginUrl;
+    const url = isLoggedIn ? beforeLoginUrl : beforeLoginUrl;
 
     getApi({
       url: url,
@@ -47,9 +48,13 @@ const MenuOptions = () => {
     });
   }, [categoryId, isLoggedIn]);
 
+
   useEffect(() => {
-    fetchService();
+    // if (categoryId) {
+      fetchService();
+    // }
   }, [fetchService]);
+
 
 
   // Function to get services by category ID
@@ -65,20 +70,18 @@ const MenuOptions = () => {
       const categoryServices = getServicesByCategoryId(category._id);
 
       return {
-        label: <Link to="/services/services">{category.name}</Link>,
+        label:
+          <Link
+            to="/services/services"
+          >
+            {category.name}
+          </Link>,
         key: category.name.toLowerCase().replace(/\s+/g, '-'),
         children: categoryServices.map((service, index) => ({
           label: (
             <Link
               to={{
-                pathname: `/service/${service.name.toLowerCase().replace(/\s+/g, '-')}`,
-                state: { id: service._id, serviceName: service.name },
-              }}
-              onClick={() => {
-                sessionStorage.setItem("serviceState", JSON.stringify({
-                  id: service._id,
-                  serviceName: service.name,
-                }));
+                pathname: `/service/${service.slug}`,
               }}
             >
               {service.name}
@@ -102,10 +105,6 @@ const MenuOptions = () => {
 
 
   const menuItems = generateMenuItems();
-
-
-  console.log(menuItems, "jasd")
-
 
 
   // Create the menu using Ant Design's Menu component
