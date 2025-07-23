@@ -191,6 +191,11 @@
     width: 100%;
   }
 
+  .Backward_Heading h1 {
+    font-size: 25px;
+    width: 100%;
+  }
+
   .forget-password {
     max-width: 90%;
     padding: 20px;

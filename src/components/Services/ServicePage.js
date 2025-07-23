@@ -328,9 +328,9 @@ const ServicePage = () => {
             />
             <p style={{ width: "50%" }}></p>
           </div>
-          <p className="title" style={{ textTransform: "uppercase" }}>
+          <h1 className="title" style={{ textTransform: "uppercase" }}>
             {response?.name}
-          </p>
+          </h1>
         </div>
 
         {ImageFinder}

@@ -45,6 +45,7 @@ const ProductDetails = () => {
   const [inCart, setInCart] = useState(false);
   const [loading, setLoading] = useState(false);
   const [metaResponse, setMetaResponse] = useState(null);
+
   let payload;
 
   const fetchMetaTags = useCallback(() => {
@@ -224,6 +225,10 @@ const ProductDetails = () => {
       behavior: "instant",
     });
   }, [productId]);
+
+  // useEffect(() => {
+  //   setProductId(product?._id)
+  // }, [product])
 
   const MyComp = ({ desc, list, listes }) => {
     return (

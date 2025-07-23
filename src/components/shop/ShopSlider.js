@@ -55,7 +55,7 @@ export const SkinTypeSlider = () => {
                   src={item.image}
                   styles={"w-80 h-80 text-4xl"}
                   type={item.name}
-                  link={`/Skin Type/${item.name}`}
+                  link={`/skin-type/${item.slug}`}
                 />
               </SwiperSlide>
             ))}
@@ -104,7 +104,7 @@ export const ProductTypeSlider = () => {
                 src={item.image}
                 styles={"w-60 h-60"}
                 baseType={item.name}
-                link={`/Product Type/${item.name}`}
+                link={`/product-type/${item.slug}`}
               />
             </SwiperSlide>
           ))}
@@ -156,7 +156,7 @@ export const BrandsSlider = ({ isBrand }) => {
                     ? "w-60 h-60 text-2xl text-center"
                     : "isBrand_container"
                 }`}
-                link={`/Brands/${item.name}`}
+                link={`/brands/${item.slug}`}
                 largeCardType={item.name}
               />
             </SwiperSlide>
@@ -204,7 +204,7 @@ export const SkinConditionsSlider = () => {
                 src={item.image}
                 styles={"w-60 h-60"}
                 baseType={item.name}
-                link={`/Skin Conditions/${item.name}`}
+                link={`/skin-conditions/${item.slug}`}
               />
             </SwiperSlide>
           ))}
@@ -252,7 +252,7 @@ export const NutritionSlider = () => {
                 src={item.image}
                 styles={"w-60 h-60"}
                 nutritionType={item.name}
-                link={`/Nutrition/${item.name}`}
+                link={`/nutrition/${item.slug}`}
               />
             </SwiperSlide>
           ))}

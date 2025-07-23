@@ -56,7 +56,7 @@ export const SkinType = () => {
                 src={item.image}
                 styles={"w-80 h-80 text-4xl"}
                 type={item.name}
-                link={`/Skin Type/${item.name}`}
+                link={`/skin-type/${item.slug}`}
               />
             </SwiperSlide>
           ))}
@@ -114,7 +114,7 @@ export const ProductType = () => {
                 src={item.image}
                 styles={"w-60 h-60"}
                 baseType={item.name}
-                link={`/Product Type/${item.name}`}
+                link={`/product-type/${item.slug}`}
               />
             </SwiperSlide>
           ))}
@@ -139,7 +139,7 @@ export const Brands = () => {
             key={i}
             src={item.image}
             largeCardType={item.name}
-            link={`/Brands/${item.name}`}
+            link={`/brands/${item.slug}`}
           />
         ))}
       </div>
@@ -196,7 +196,7 @@ export const SkinConditions = () => {
                 src={item.image}
                 styles={"w-60 h-60"}
                 baseType={item.name}
-                link={`/Skin Conditions/${item.name}`}
+                link={`/skin-conditions/${item.slug}`}
               />
             </SwiperSlide>
           ))}
@@ -255,7 +255,7 @@ export const Nutrition = () => {
                 src={item.image}
                 styles={"w-60 h-60"}
                 nutritionType={item.name}
-                link={`/Nutrition/${item.name}`}
+                link={`/nutrition/${item.slug}`}
               />
             </SwiperSlide>
           ))}
@@ -300,6 +300,7 @@ export const Products = ({ data }) => {
                 id={item._id}
                 src={item?.productImages?.[0]?.image}
                 title={item.name}
+                slug={item.slug}
                 price={
                   item.multipleSize === false
                     ? item.price

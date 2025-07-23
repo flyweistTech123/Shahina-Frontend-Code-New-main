@@ -34,7 +34,7 @@ const ShopMenu = () => {
   return (
     <div
       className="relative Shop_Menu_Container"
-     onMouseLeave={() => handleLeave()}
+      onMouseLeave={() => handleLeave()}
     >
       <ul className="Item_Name">
         {shopMenu.map((item, id) => (
@@ -47,9 +47,8 @@ const ShopMenu = () => {
         ))}
       </ul>
       <div
-        className={` Item_Container  ${
-          hoveredType !== null ? "fade-entered" : "fade-exiting"
-        }`}
+        className={` Item_Container  ${hoveredType !== null ? "fade-entered" : "fade-exiting"
+          }`}
       >
         {hoveredType === 0 && <SkinTypeSlider />}
         {hoveredType === 1 && <ProductTypeSlider />}

@@ -135,7 +135,7 @@ const ServiceDrawer = ({ open, onClose, title }) => {
           <div className="product-container">
             {(response?.data?.docs || response?.data)?.map((i, index) => (
               <div className="Items" key={index}>
-                <Link to={`/service/${i.name}?id=${i._id}`}>
+                <Link to={`/service/${i.slug}`}>
                   <ImageLazyLoading
                     img={i.images?.[0]?.img}
                     alt={i?.name}
@@ -148,7 +148,7 @@ const ServiceDrawer = ({ open, onClose, title }) => {
                   Pay with interest free installments with Cherry
                 </p>
                 <a href="/paymentplan">CLICK TO LEARN MORE</a>
-                <Link to={`/service/${i.name}?id=${i._id}`}>
+                <Link to={`/service/${i.slug}`}>
                   <button>VIEW MORE</button>
                 </Link>
               </div>

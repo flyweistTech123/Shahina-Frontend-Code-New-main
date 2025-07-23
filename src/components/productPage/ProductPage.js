@@ -42,15 +42,15 @@ const ProductPage = () => {
   }, []);
 
   useEffect(() => {
-    if (type === "Skin Type") {
+    if (type === "skin-type") {
       setCategoryType("skinTypeId");
-    } else if (type === "Product Type") {
+    } else if (type === "product-type") {
       setCategoryType("productTypeId");
-    } else if (type === "Brands") {
+    } else if (type === "brands") {
       setCategoryType("brandId");
-    } else if (type === "Skin Conditions") {
+    } else if (type === "skin-conditions") {
       setCategoryType("skinConditionId");
-    } else if (type === "Nutrition") {
+    } else if (type === "nutrition") {
       setCategoryType("nutritionId");
     }
   }, [type]);
@@ -85,15 +85,15 @@ const ProductPage = () => {
 
   useEffect(() => {
     if (data) {
-      if (type === "Skin Type") {
+      if (type === "skin-type") {
         setImg(data?.data?.docs?.[0]?.skinTypeId?.image);
-      } else if (type === "Product Type") {
+      } else if (type === "product-type") {
         setImg(data?.data?.docs?.[0]?.productTypeId?.image);
-      } else if (type === "Brands") {
+      } else if (type === "brands") {
         setImg(data?.data?.docs?.[0]?.brandId?.image);
-      } else if (type === "Skin Conditions") {
+      } else if (type === "skin-conditions") {
         setImg(data?.data?.docs?.[0]?.skinConditionId?.image);
-      } else if (type === "Nutrition") {
+      } else if (type === "nutrition") {
         setImg(data?.data?.docs?.[0]?.nutritionId?.image);
       } else {
         setImg("/Image/39.jpg");
@@ -164,7 +164,7 @@ const ProductPage = () => {
                       className="flex items-center gap-4 text-xl break break-keep cursor-pointer"
                       htmlFor={item?.name}
                       onClick={() =>
-                        navigate(`/allproducts/Skin Type/${item.name}`)
+                        navigate(`/allproducts/skin-type/${item.slug}`)
                       }
                     >
                       {item?.name}
@@ -188,7 +188,7 @@ const ProductPage = () => {
                       className="flex items-center gap-4 text-xl break break-keep cursor-pointer"
                       htmlFor={item?.name}
                       onClick={() =>
-                        navigate(`/allproducts/Product Type/${item.name}`)
+                        navigate(`/allproducts/product-type/${item.slug}`)
                       }
                     >
                       {item?.name}
@@ -209,7 +209,7 @@ const ProductPage = () => {
                       className="flex items-center gap-4 text-xl break break-keep cursor-pointer"
                       htmlFor={item?.name}
                       onClick={() =>
-                        navigate(`/allproducts/Brands/${item.name}`)
+                        navigate(`/allproducts/brands/${item.slug}`)
                       }
                     >
                       {item?.name}
@@ -232,7 +232,7 @@ const ProductPage = () => {
                       className="flex items-center gap-4 text-xl break break-keep cursor-pointer"
                       htmlFor={item?.name}
                       onClick={() =>
-                        navigate(`/allproducts/Skin Conditions/${item.name}`)
+                        navigate(`/allproducts/skin-conditions/${item.slug}`)
                       }
                     >
                       {item?.name}
@@ -253,7 +253,7 @@ const ProductPage = () => {
                       className="flex items-center gap-4 text-xl break break-keep cursor-pointer"
                       htmlFor={item?.name}
                       onClick={() =>
-                        navigate(`/allproducts/Nutrition/${item.name}`)
+                        navigate(`/allproducts/nutrition/${item.slug}`)
                       }
                     >
                       {item?.name}

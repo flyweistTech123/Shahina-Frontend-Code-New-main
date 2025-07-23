@@ -4,9 +4,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ImageLazyLoading } from "../../utils/helpingComponent";
 
-const ProductCard = ({ src, title, price, id }) => {
+const ProductCard = ({ src, title,slug, price, id }) => {
   return (
-    <Link to={`/product/${title}?id=${id}`}>
+    <Link to={`/product/${slug}?id=${id}`}>
       <div className="Item cursor-pointer">
         <div className="thumbnail">
           <ImageLazyLoading img={src} alt={title} className="w-full h-full" />

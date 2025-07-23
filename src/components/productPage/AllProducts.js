@@ -5,9 +5,9 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from "react-router-dom";
 import { ImageLazyLoading } from "../../utils/helpingComponent";
 
-const ProductCard = forwardRef(({ src, title, price, id, showprice }, ref) => {
+const ProductCard = forwardRef(({ src, title, slug, price, id, showprice }, ref) => {
   return (
-    <Link to={`/product/${title}?id=${id}`}>
+    <Link to={`/product/${slug}?id=${id}`}>
       <div className="Item cursor-pointer" ref={ref}>
         <div className="thumbnail">
           <ImageLazyLoading
@@ -69,6 +69,7 @@ const AllProducts = ({ products, setLimit, limit, hasNextPage }) => {
             id={item._id}
             src={item?.productImages?.[0]?.image}
             title={item.name}
+            slug={item.slug}
             showprice={item.isShowAddToCart}
             price={
               item.multipleSize === false
