@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ImageLazyLoading } from "../../utils/helpingComponent";
 import ServiceDrawer from "../Drawer/ServiceDrawer";
 
-const ServiceCard = ({ src, service, id, name }) => {
+const ServiceCard = ({ src, service, slug, id, name }) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -16,7 +16,7 @@ const ServiceCard = ({ src, service, id, name }) => {
   };
 
   useEffect(() => {
-    if (service === name) {
+    if (slug === name) {
       setOpen(true);
     }
   }, [service, name]);

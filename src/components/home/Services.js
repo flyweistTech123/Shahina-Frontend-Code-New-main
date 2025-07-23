@@ -29,6 +29,7 @@ const Services = ({ name, className }) => {
               key={index}
               src={i.image}
               service={i.name}
+              slug={i.slug}
               id={i._id}
               name={name}
             />

@@ -79,7 +79,7 @@ const Footer = () => {
         services?.data?.length > 0
           ? services?.data?.map((i) => ({
             title: i.name,
-            link: `/services/${i.name}`,
+            link: `/services/${i.slug}`,
           }))
           : [],
     },
