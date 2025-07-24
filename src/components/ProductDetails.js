@@ -408,7 +408,7 @@ const ProductDetails = () => {
         </div>
 
         <div className="right">
-          <p className="title">{product?.name}</p>
+          <h1 className="title">{product?.name}</h1>
 
           {product?.isShowAddToCart &&
             <div className="price-container">

@@ -19,7 +19,7 @@ const TopHeader = () => {
           <Link to={"/giftcards"}>
             <button className="button-container">
               <ImageLazyLoading
-                img={"/asessts/topheader/gift.png"}
+                img={"/asessts/topheader/gift.webp"}
                 alt={"Gift Card"}
               />
               GIFT CARDS
@@ -28,7 +28,7 @@ const TopHeader = () => {
           <div onClick={() => dispatch(openQuiz())}>
             <button className="button-container">
               <ImageLazyLoading
-                img={"/asessts/topheader/bulb.png"}
+                img={"/asessts/topheader/bulb.webp"}
                 alt={"Acne Quiz"}
               />
               ACNE QUIZ
@@ -37,7 +37,7 @@ const TopHeader = () => {
           <Link to={"/checkIngredients"}>
             <button className="button-container">
               <ImageLazyLoading
-                img={"/asessts/topheader/note.png"}
+                img={"/asessts/topheader/note.webp"}
                 alt={"Check Ingredients"}
               />
               CHECK INGREDIENTS

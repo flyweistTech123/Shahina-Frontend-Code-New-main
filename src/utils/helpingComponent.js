@@ -3,15 +3,15 @@
 import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { lazy } from "react";
 
 export const Header = ({ heading, styles }) => {
   const navigate = useNavigate();
   return (
     <header className="relative Heading_Container_Second ">
       <h1
-        className={`text-6xl  py-14 ${
-          styles ? styles : "font-light"
-        }  text-center  text-primary`}
+        className={`text-6xl  py-14 ${styles ? styles : "font-light"
+          }  text-center  text-primary`}
       >
         {heading}
       </h1>
@@ -31,9 +31,8 @@ export const Header = ({ heading, styles }) => {
 export const PrimaryButton = ({ btnName, styles }) => {
   return (
     <button
-      className={`w-96 py-6 ${
-        styles ? styles : "bg-secondary text-primary"
-      } text-2xl font-bold`}
+      className={`w-96 py-6 ${styles ? styles : "bg-secondary text-primary"
+        } text-2xl font-bold`}
     >
       {btnName}
     </button>
@@ -67,6 +66,7 @@ export const ImageLazyLoading = ({ img, className, alt, onClick }) => {
       alt={alt}
       src={img}
       onClick={onClick}
+      loading="lazy"
     />
   );
 };
@@ -80,8 +80,7 @@ export const DateFormatter = (date) => {
   const hasAll = month && year && day;
   return (
     hasAll &&
-    `${month <= 9 ? `0${month}` : month}-${
-      day <= 9 ? `0${day}` : day
+    `${month <= 9 ? `0${month}` : month}-${day <= 9 ? `0${day}` : day
     }-${year}  `
   );
 };

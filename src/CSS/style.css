@@ -1628,6 +1628,15 @@
   line-height: normal;
 }
 
+.indivisual-product .right h1.title {
+  color: #1e1e1e;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  font-family: Poppins;
+  line-height: normal;
+}
+
 .indivisual-product .right .price-container {
   /* display: flex; */
   gap: 40px;
